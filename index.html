@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Brawl Balls</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff9800">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="splash-screen">
+    <h1 id="splash-title">Brawl Balls</h1>
+    <p id="splash-subtitle">Lygoodfr Games</p>
+</div>
+
+<div id="login-screen" class="hidden">
+    <div id="login-container">
+        <h2>Вход в игру</h2>
+        <div class="tab-buttons">
+            <button id="login-tab" class="tab-btn active">Вход</button>
+            <button id="register-tab" class="tab-btn">Регистрация</button>
+        </div>
+        
+        <div id="login-form" class="auth-form">
+            <input type="text" id="login-username" placeholder="Имя пользователя">
+            <input type="password" id="login-password" placeholder="Пароль">
+            <button id="login-btn">Войти</button>
+            <p id="login-error" class="error-message"></p>
+        </div>
+        
+        <div id="register-form" class="auth-form hidden">
+            <input type="text" id="reg-username" placeholder="Имя пользователя">
+            <input type="password" id="reg-password" placeholder="Пароль">
+            <input type="password" id="reg-confirm" placeholder="Подтвердите пароль">
+            <button id="register-btn">Зарегистрироваться</button>
+            <p id="register-error" class="error-message"></p>
+        </div>
+        
+        <button id="guest-btn" class="guest-btn">Продолжить как гость</button>
+    </div>
+</div>
+
+<div id="main-menu" class="hidden">
+    <div id="main-menu-header">
+        <div id="header-image">
+            <img src="https://sun9-7.userapi.com/s/v1/ig2/hV5SC3xOUK_qrRk3X2LZBp9DjckZv-t29tSlQVA8tlNOL_BdRsQy84OzDVYvoykwMe19yDosl3saGhR6MzkjHSuE.jpg?quality=95&as=32x27,48x41,72x62,108x93,154x132&from=bu&u=iC1E0lB2eXjCnW6tHDsTYCeXO5atxv6qyGOoApfYQnU&cs=154x0">
+        </div>
+        <h1>Brawl Balls</h1>
+        <p>Lygoodfr Games</p>
+        <div id="user-info">
+            <span id="current-user">Игрок</span>
+            <button id="logout-btn" class="logout-btn">Выйти</button>
+        </div>
+        <div id="currency-display">
+            <div>Трофеи: <span id="trophies-count">0</span></div>
+            <div>Нефриты: <span id="jade-count">0</span></div>
+            <div>Жетоны: <span id="tokens-count">0</span></div>
+        </div>
+    </div>
+
+    <div id="name-input-section">
+        <input type="text" id="player-name" placeholder="Введите имя персонажа">
+        <button id="accept-name-btn">Принять</button>
+    </div>
+
+    <div id="character-select" class="hidden">
+        <h2>Выберите бойца:</h2>
+        <div id="character-buttons">
+            <div class="character-container">
+                <div class="character-image"><img src="https://sun9-24.userapi.com/s/v1/ig2/N7awpCLaAnizXrnAaCrg0F0msTKIj-dSC-D2jYOdzu6a7D39ZDEmeTMbFtBDWIeOxp-aX-gA8vvyEnTRg-4kYe6e.jpg?quality=95&as=32x31,48x46,72x70,108x104,117x113&from=bu&u=TV3KnNw8TSakaPxGe6vkWhJ7z6sf_xNpE3aA7j5kMu0&cs=117x0"></div>
+                <button id="shegga-btn" class="character-btn purple">Шегги</button>
+                <div class="character-unlocked">Доступен</div>
+            </div>
+            <div class="character-container">
+                <div class="character-image"><img src="https://sun9-13.userapi.com/s/v1/ig2/HeAq_z_KTsPu542HIzOcqQPvAeJQH39E-PCOPC7dkF8He04dkakQBC8MJDQjsPoChFEx2WnvnkYnSP2hi4pRnWeY.jpg?quality=95&as=32x30,48x45,72x68,108x101,115x108&from=bu&u=0K0XVhjjtkxyvwhfivCW8xbjOntHSyVe_BB64ZLTnSU&cs=115x0"></div>
+                <button id="mortak-btn" class="character-btn red">Мортак</button>
+                <div class="character-unlocked">Доступен</div>
+            </div>
+            <div class="character-container">
+                <div class="character-image"><img src="https://sun9-39.userapi.com/s/v1/ig2/is6HKDpkxr4mpcRubdtAWSEBYSb4LFhCw6QoKpUP2x060CqHn7OdzOVfwYxAXEeOmXRglxLEEsUuST6UvMGZZVgd.jpg?quality=95&as=32x30,48x44,72x67,108x100,121x112&from=bu&u=Z6QA_mjeiDNYvj1KBUbkiT75qxsvu-zIRIIjx99J4Ws&cs=121x0"></div>
+                <button id="bully-btn" class="character-btn black">Булли</button>
+                <div class="character-unlocked">Доступен</div>
+            </div>
+            <div class="character-container">
+                <div class="character-image"><img src="https://sun9-32.userapi.com/s/v1/ig2/R9s9J4qQzeQyG4K816M8V-iewB6aAGNxPvQFnJk9QFGm4z7PlQLXhWoqw4gz2MhigMCpeFmnh0vCM69uyoVKwenP.jpg?quality=95&as=32x30,48x45,72x68,108x101,116x109&from=bu&u=ItHkievGc2I97XTtZuYFjJU2OsLtOdG5jrr3_H57Q4g&cs=116x0"></div>
+                <button id="scrap-btn" class="character-btn orange">Скрэп</button>
+                <div class="character-unlocked">Доступен</div>
+            </div>
+            <div class="character-container">
+                <div class="character-image"><img src="https://sun9-80.userapi.com/s/v1/ig2/tqEe62oAmhux8GDIqE2LOW1diho4JjA7SfEr27owH9jVyy7zdlN5RuQdZpsK1ViGxGZlPb8m6nIRr6NH5oXmjc3b.jpg?quality=95&as=32x30,48x45,72x67,108x101,109x102&from=bu&u=Pp5slI3FlyKsOZvD2JC8uko6nZsAezlhg-DYUU0Iz08&cs=109x0"></div>
+                <button id="clancy-btn" class="character-btn yellow" disabled>Клэнси (2500)</button>
+                <div class="character-locked">Заблокирован</div>
+            </div>
+            <div class="character-container">
+                <div class="character-image"><img src="https://sun9-24.userapi.com/s/v1/ig2/IbZ7tMpz_vqlQqxRvJfCZ4I8-RbawoqBYTYw_96oGXWnAkX5rRUApGidlI333w3sBjL-B8z8khM1I1gB1CNXLZXo.jpg?quality=95&as=32x27,48x41,72x62,108x93,120x103&from=bu&u=7ec2TRvqwBz-kKmu77r5QGx4np_O88glxypGMMgjtAs&cs=120x0"></div>
+                <button id="rosa-btn" class="character-btn peach" disabled>Роза (3000)</button>
+                <div class="character-locked">Заблокирован</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mode-select">
+        <h3>Режим игры:</h3>
+        <div class="mode-buttons">
+            <button id="solo-mode-btn" class="mode-btn solo active">Одиночный</button>
+            <button id="capture-mode-btn" class="mode-btn capture">Захват алмазов</button>
+            <button id="knockout-mode-btn" class="mode-btn knockout">Нокаут (2x2)</button>
+        </div>
+    </div>
+
+    <div id="menu-buttons">
+        <button id="start-game-btn" class="hidden">Начать игру</button>
+        <button id="shop-btn">Магазин</button>
+        <button id="chest-btn">Ящик (10 жетонов)</button>
+    </div>
+
+    <h4>УПРАВЛЕНИЕ: СТРЕЛОЧКИ - движение, ПРОБЕЛ - атака, SHIFT - суператака</h4>
+    <h4>В одиночном режиме собирайте цветочки (+1 трофей)! В захвате алмазов соберите 10 алмазов!</h4>
+    <h4><a href="https://vk.com/lygoodfr">ВК создателя игры</a></h4>
+
+    <div id="shop-menu" class="hidden">
+        <h2>Магазин</h2>
+        <div class="shop-item">
+            <h3>Клэнси</h3>
+            <p>2500 нефритов | Молниеносные выстрелы</p>
+            <button id="buy-clancy-btn" class="buy-btn">Купить</button>
+        </div>
+        <div class="shop-item">
+            <h3>Роза</h3>
+            <p>3000 нефритов | 3 большие пули + щит</p>
+            <button id="buy-rosa-btn" class="buy-btn">Купить</button>
+        </div>
+        <div class="shop-item">
+            <h3>Бустер здоровья</h3>
+            <p>500 нефритов | +500 к здоровью</p>
+            <button id="buy-health-btn" class="buy-btn">Купить</button>
+        </div>
+        <button id="close-shop-btn">Закрыть</button>
+    </div>
+
+    <div id="chest-notification" class="hidden">
+        <div class="notification-content">
+            <h3>Поздравляем!</h3>
+            <p>Вы получили: <span id="jade-reward">2500</span> нефритов!</p>
+            <button id="close-notification-btn">OK</button>
+        </div>
+    </div>
+</div>
+
+<div id="game-container" class="hidden">
+    <canvas id="game-canvas" width="900" height="600"></canvas>
+    <div id="game-hud">
+        <div id="player-health">Здоровье: 4000</div>
+        <div id="enemies-remaining">Врагов: 0</div>
+        <div id="trophy-count">Трофеи: 0</div>
+        <div id="token-count">Жетоны: 0</div>
+        <div id="diamonds-count" class="hidden">Алмазы: 0/10</div>
+        <div id="flowers-count" class="hidden">Цветочки: 0/10</div>
+    </div>
+    <div id="round-display" class="hidden">Раунд: <span id="round-number">1</span>/3</div>
+    <div id="capture-timer" class="hidden">Ожидание...</div>
+    <div id="team-scores" class="hidden">
+        <div>Наша: 0</div>
+        <div>Враги: 0</div>
+    </div>
+</div>
+
+<div id="win-screen" class="hidden">
+    <h1>ПОБЕДА!</h1>
+    <div class="rewards">
+        <p>Трофеев: +<span id="trophies-earned">0</span></p>
+        <p>Жетонов: +<span id="tokens-earned">0</span></p>
+    </div>
+    <button id="play-again-btn-win">Играть снова</button>
+    <button id="main-menu-btn-win">В главное меню</button>
+</div>
+
+<div id="lose-screen" class="hidden">
+    <h1>ПОРАЖЕНИЕ!</h1>
+    <div class="rewards">
+        <p>Трофеев: +<span id="trophies-lost">0</span></p>
+        <p>Жетонов: +<span id="tokens-lost">0</span></p>
+    </div>
+    <button id="play-again-btn-lose">Играть снова</button>
+    <button id="main-menu-btn-lose">В главное меню</button>
+</div>
+
+<div id="animation-container"></div>
+
+<audio id="menu-music" loop>
+    <source src="https://zvukipro.com/uploads/files/2020-05/1588412754_laxity-crosswords-by-seraphic-music.mp3" type="audio/mpeg">
+</audio>
+<audio id="shoot-sound">
+    <source src="https://zvukipro.com/uploads/files/2018-12/1545114041_jg-032316-sfx-8-bit-punch.mp3" type="audio/mpeg">
+</audio>
+<audio id="chest-sound">
+    <source src="https://zvukipro.com/uploads/files/2018-12/1545114041_jg-032316-sfx-8-bit-punch.mp3" type="audio/mpeg">
+</audio>
+<audio id="gem-sound">
+    <source src="https://zvukipro.com/uploads/files/2018-12/1545114041_jg-032316-sfx-8-bit-punch.mp3" type="audio/mpeg">
+</audio>
+<audio id="flower-sound">
+    <source src="https://zvukipro.com/uploads/files/2018-12/1545114041_jg-032316-sfx-8-bit-punch.mp3" type="audio/mpeg">
+</audio>
+<audio id="shield-sound">
+    <source src="https://zvukipro.com/uploads/files/2018-12/1545114041_jg-032316-sfx-8-bit-punch.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
